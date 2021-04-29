@@ -1,4 +1,4 @@
-# [![Fork me on Gitee](https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg)](https://github.com/zhaojie777/HangHua-Base)行话 V1.0
+# [![Fork me on Gitee](https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg)](https://github.com/zhaojie777/HangHua-Base) &emsp;行话（行业知识问答平台） V1.0
 
 <p align="center"> 
  <img src="https://img.shields.io/circleci/project/vuejs/vue/dev.svg" alt="Build Status">
