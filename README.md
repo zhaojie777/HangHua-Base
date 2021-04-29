@@ -8,6 +8,9 @@
  <img src="https://img.shields.io/badge/Spring%20Cloud-Greenwich.SR6.RELEASE-blue.svg" alt="sc">
 </p>
 
+
+<p align="center"> 
 [![star](https://gitee.com/owenwangwen/open-capacity-platform/badge/star.svg?theme=white)](https://gitee.com/owenwangwen/open-capacity-platform/stargazers)
 [![Fork me on Gitee](https://gitee.com/owenwangwen/open-capacity-platform/widgets/widget_6.svg)](https://gitee.com/owenwangwen/open-capacity-platform)
 [![fork](https://gitee.com/owenwangwen/open-capacity-platform/badge/fork.svg?theme=white)](https://gitee.com/owenwangwen/open-capacity-platform/members)
+</p>
