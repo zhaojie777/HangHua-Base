@@ -1,4 +1,5 @@
-# 🌟 &emsp;行话（行业知识问答APP） v1.0
+# 🌟 &emsp;行话（行业知识问答APP） v1.0  &emsp; &emsp; [![chat](https://img.shields.io/badge/chat-weChat-blue.svg)](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository/2021-4-29/1619695898789-%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200913000038.jpg)
+
 
 <p align="center"> 
  <img src="https://img.shields.io/badge/build-passing-success.svg" alt="Build Status">
@@ -8,7 +9,7 @@
  <img src="https://img.shields.io/github/stars/zhaojie777/HangHua-Base?label=star&style=social" alt="GitHub Repo stars">
 </p>
 
-[![chat](https://img.shields.io/badge/chat-weChat-blue.svg)](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository/2021-4-29/1619695898789-%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200913000038.jpg)
+
 
 
 
