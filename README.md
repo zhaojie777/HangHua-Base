@@ -1,4 +1,4 @@
-# [![Fork me on Gitee](https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg)](https://github.com/zhaojie777/HangHua-Base) &emsp;行话（行业知识问答平台） V1.0
+# [![title](https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg)](https://github.com/zhaojie777/HangHua-Base) &emsp;行话（行业知识问答平台） v1.0
 
 <p align="center"> 
  <img src="https://img.shields.io/badge/build-passing-success.svg" alt="Build Status">
@@ -8,6 +8,6 @@
  <img src="https://img.shields.io/badge/Spring%20Cloud-Greenwich.SR6.RELEASE-blue.svg" alt="sc">
 </p>
 
-> :warning:
+![GitHub Repo stars](https://img.shields.io/github/stars/zhaojie777/HangHua-Base?label=star&style=social)
 
 
