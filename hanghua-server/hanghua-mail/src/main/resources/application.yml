@@ -1,0 +1,31 @@
+server:
+  port: 7011
+
+
+####################################Spring配置############################################
+spring:
+  application:
+    name: hanghua-mail
+  #邮件
+  mail:
+    #smtp服务主机
+    host: smtp.qq.com
+    #服务协议
+    protocol: smtp
+    #编码集
+    default-encoding: UTF-8
+    #发送邮件的账户
+    username: ximenalang@foxmail.com
+    #授权码
+    password: lrhfatkallvtbcia
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+

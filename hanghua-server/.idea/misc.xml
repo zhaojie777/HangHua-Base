@@ -5,9 +5,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/hanghua-eureka-server/pom.xml" />
-        <option value="$PROJECT_DIR$/hanghua-zuul/pom.xml" />
-        <option value="$PROJECT_DIR$/hanghua-ribbon-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/huanghua-mail/pom.xml" />
+        <option value="$PROJECT_DIR$/hanghua-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/hanghua-nacos/pom.xml" />
+        <option value="$PROJECT_DIR$/hanghua-common/pom.xml" />
       </list>
     </option>
   </component>

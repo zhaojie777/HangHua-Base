@@ -6,16 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hanghua-ribbon-consumer" />
-        <module name="hanghua-zuul" />
-        <module name="hanghua-eureka-server" />
+        <module name="hanghua-sso" />
+        <module name="hanghua-common" />
+        <module name="hanghua-mail" />
+        <module name="hanghua-nacos" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hanghua-eureka-server" target="1.8" />
+      <module name="hanghua-hystrix-dashboard" target="1.8" />
+      <module name="hanghua-ribbon-consumer" target="1.8" />
+      <module name="hanghua-zuul" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hanghua-common" options="" />
       <module name="hanghua-eureka-server" options="" />
+      <module name="hanghua-mail" options="" />
+      <module name="hanghua-nacos" options="" />
       <module name="hanghua-ribbon-consumer" options="" />
+      <module name="hanghua-sso" options="" />
       <module name="hanghua-zuul" options="" />
     </option>
   </component>
