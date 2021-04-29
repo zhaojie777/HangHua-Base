@@ -1,4 +1,4 @@
-# [![Fork me on Gitee](https://gitee.com/owenwangwen/open-capacity-platform/widgets/widget_5.svg)](https://gitee.com/owenwangwen/open-capacity-platform)open-capacity-platform 微服务能力开放平台 
+# [![Fork me on Gitee](https://res.cloudinary.com/anuraghazra/image/upload/v1594908242/logo_ccswme.svg)](https://github.com/zhaojie777/HangHua-Base)行话 V1.0
 
 <p align="center"> 
  <img src="https://img.shields.io/circleci/project/vuejs/vue/dev.svg" alt="Build Status">
@@ -9,9 +9,4 @@
 </p>
 
 
-
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-[![star](https://gitee.com/owenwangwen/open-capacity-platform/badge/star.svg?theme=white)](https://gitee.com/owenwangwen/open-capacity-platform/stargazers)
-[![Fork me on Gitee](https://gitee.com/owenwangwen/open-capacity-platform/widgets/widget_6.svg)](https://gitee.com/owenwangwen/open-capacity-platform)
-[![fork](https://gitee.com/owenwangwen/open-capacity-platform/badge/fork.svg?theme=white)](https://gitee.com/owenwangwen/open-capacity-platform/members)
 
