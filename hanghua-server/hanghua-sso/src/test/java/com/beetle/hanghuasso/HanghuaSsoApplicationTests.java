@@ -1,15 +1,12 @@
 package com.beetle.hanghuasso;
 
 
-import com.beetle.hanghuasso.entity.RSA256Key;
-import com.beetle.hanghuasso.util.JSONUtil;
+import com.beetle.hanghuasso.util.JsonUtil;
 import com.beetle.hanghuasso.util.JWTUtil;
-import com.beetle.hanghuasso.util.SecretKeyUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.security.NoSuchAlgorithmException;
@@ -40,7 +37,7 @@ public class HanghuaSsoApplicationTests {
         log.info("==========================================================");
 
         log.info("TOKEN: " + JWTUtil.creatTokenByRS256(username));
-        log.info("JsonForm: " + JSONUtil.toJsonString(user));
+        log.info("JsonForm: " + JsonUtil.toJsonString(user));
 
         log.info("==========================================================");
     }

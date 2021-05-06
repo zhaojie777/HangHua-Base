@@ -12,10 +12,18 @@
     <description>parent of huanghua</description>
 
     <modules>
+        <!--服务注册中心-->
         <module>hanghua-nacos</module>
+        <!--单点登陆-->
         <module>hanghua-sso</module>
+        <!--邮件服务-->
         <module>hanghua-mail</module>
+        <!--通用工具服务-->
         <module>hanghua-common</module>
+        <!--文章服务-->
+        <module>hanghua-article</module>
+        <!--鉴权服务-->
+        <module>hanghua-authentication</module>
     </modules>
 
     <!--参数列表-->
@@ -62,11 +70,14 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>8.0.15</version>
             </dependency>
+            <!--druid数据源-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${alibaba.druid-version}</version>
             </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

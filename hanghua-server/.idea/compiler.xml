@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hanghua-article" />
         <module name="hanghua-sso" />
-        <module name="hanghua-common" />
         <module name="hanghua-mail" />
+        <module name="hanghua-common" />
+        <module name="hanghua-authentication" />
         <module name="hanghua-nacos" />
       </profile>
     </annotationProcessing>
@@ -21,6 +23,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hanghua-article" options="" />
+      <module name="hanghua-authentication" options="" />
       <module name="hanghua-common" options="" />
       <module name="hanghua-eureka-server" options="" />
       <module name="hanghua-mail" options="" />

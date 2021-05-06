@@ -53,7 +53,7 @@ public class JWTUtil {
                 //过期时间
                 .withExpiresAt(DateUtil.addHours(2))
                 //相关信息
-                .withClaim("data", JSONUtil.toJsonString(data))
+                .withClaim("data", JsonUtil.toJsonString(data))
                 //签入
                 .sign(algorithm);
     }

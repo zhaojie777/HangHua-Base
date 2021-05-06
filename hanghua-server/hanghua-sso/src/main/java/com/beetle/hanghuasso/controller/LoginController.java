@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description  登陆功能请求控制类
  */
 @RestController
-@RequestMapping("/hanghua")
+@RequestMapping("/hanghua-sso")
 public class LoginController {
 
     @Autowired
     private LoginService loginService;
 
     /**
-     * access_token和refresh_tokeng + Redis管理用户信息
+     * access_token(访问令牌)和refresh_tokeng(更新令牌) + Redis管理用户信息
      *
      * @param userId
      * @param passWord

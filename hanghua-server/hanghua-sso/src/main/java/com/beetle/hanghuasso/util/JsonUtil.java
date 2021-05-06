@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
  * @date 2021-04-26
  * @Description json工具类
  */
-public class JSONUtil {
-    private static Logger log = LoggerFactory.getLogger(JSONUtil.class);
+public class JsonUtil {
+    private static Logger log = LoggerFactory.getLogger(JsonUtil.class);
 
     //jackson核心类
     private static ObjectMapper mapper = new ObjectMapper();
