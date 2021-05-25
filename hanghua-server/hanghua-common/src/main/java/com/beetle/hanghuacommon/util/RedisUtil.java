@@ -1,8 +1,9 @@
-package com.beetle.hanghuasso.util;
+package com.beetle.hanghuacommon.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -104,7 +105,11 @@ public class RedisUtil {
      * @param time
      */
     public static void set(String key, Object value, long time) {
-        redisTemplate.opsForValue().set(key, value, time);
+        redisTemplate.opsForValue().set(key, value);
+        if (expire(key, time)) {
+            throw new IllegalArgumentException("过期时间不可为小于零的值！");
+        }
+
     }
 
 

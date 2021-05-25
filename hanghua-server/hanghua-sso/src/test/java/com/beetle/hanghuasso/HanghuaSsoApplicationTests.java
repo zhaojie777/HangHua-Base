@@ -1,7 +1,6 @@
 package com.beetle.hanghuasso;
 
 
-import com.beetle.hanghuasso.util.JsonUtil;
 import com.beetle.hanghuasso.util.JWTUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;

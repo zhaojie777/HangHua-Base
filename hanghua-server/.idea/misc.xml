@@ -7,7 +7,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/huanghua-mail/pom.xml" />
         <option value="$PROJECT_DIR$/hanghua-sso/pom.xml" />
-        <option value="$PROJECT_DIR$/hanghua-nacos/pom.xml" />
         <option value="$PROJECT_DIR$/hanghua-common/pom.xml" />
         <option value="$PROJECT_DIR$/hanghua-article/pom.xml" />
         <option value="$PROJECT_DIR$/hanghua-authentication/pom.xml" />

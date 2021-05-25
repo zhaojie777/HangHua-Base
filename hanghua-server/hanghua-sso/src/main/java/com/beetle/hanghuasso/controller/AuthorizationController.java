@@ -1,7 +1,7 @@
 package com.beetle.hanghuasso.controller;
 
 
-import com.beetle.hanghuasso.dto.Result;
+import com.beetle.hanghuasso.dto.ResultDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,21 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthorizationController {
 
     @GetMapping("/authcode")
-    public Result getCode(String macId) {
+    public ResultDTO getCode(String macId) {
 
 
 
-        return new Result(1, "");
+        return new ResultDTO(1, "");
     }
 
 
 
     @GetMapping("/githubtoken")
-    public Result getToken(String code) {
+    public ResultDTO getToken(String code) {
         System.out.println("code:" + code);
 
 
-        return new Result(1, "");
+        return new ResultDTO(1, "");
     }
 
 

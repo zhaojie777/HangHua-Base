@@ -1,4 +1,4 @@
-package com.beetle.hanghuasso.util;
+package com.beetle.hanghuacommon.util;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -1,4 +1,4 @@
-package com.beetle.hanghuasso.util;
+package com.beetle.hanghuacommon.util;
 
 /**
  * md5加密工具类

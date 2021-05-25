@@ -12,8 +12,8 @@
     <description>parent of huanghua</description>
 
     <modules>
-        <!--服务注册中心-->
-        <module>hanghua-nacos</module>
+<!--        &lt;!&ndash;服务注册中心&ndash;&gt;-->
+<!--        <module>hanghua-nacos</module>-->
         <!--单点登陆-->
         <module>hanghua-sso</module>
         <!--邮件服务-->
@@ -33,7 +33,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.boot-version>2.3.10.RELEASE</spring.boot-version>
         <spring.cloud-version>Hoxton.SR11</spring.cloud-version>
-        <spring.mybatis-version>2.1.2</spring.mybatis-version>
+        <spring.mybatis-version>2.1.0</spring.mybatis-version>
         <alibaba.druid-version>1.2.5</alibaba.druid-version>
     </properties>
 
@@ -57,12 +57,14 @@
                 <scope>import</scope>
             </dependency>
 
+
             <!--spring-mybatis相关依赖-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${spring.mybatis-version}</version>
             </dependency>
+
 
             <!--mysql相关依赖-->
             <dependency>
@@ -84,15 +86,8 @@
 
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot-version}</version>
-            </plugin>
-        </plugins>
-    </build>
+
+
 
 
 </project>
