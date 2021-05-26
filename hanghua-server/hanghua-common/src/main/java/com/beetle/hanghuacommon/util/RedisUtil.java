@@ -1,9 +1,10 @@
 package com.beetle.hanghuacommon.util;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,7 @@ import java.util.concurrent.TimeUnit;
  * @author zhaojie
  * @date 2021-05-06
  */
+@Component
 public class RedisUtil {
 
     @Autowired
@@ -261,6 +263,16 @@ public class RedisUtil {
         redisTemplate.opsForHash().put(key, field, value);
     }
 
+    /**
+     * 缓存单个hash值,并设置过期时间
+     * @param key
+     * @param field
+     * @param value
+     */
+    public static void setHash(String key, String field, Object value, long time) {
+        redisTemplate.opsForHash().put(key, field, value);
+        expire(key, time);
+    }
 
 
     /**

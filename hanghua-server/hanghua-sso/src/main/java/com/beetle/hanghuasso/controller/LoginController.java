@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.security.NoSuchAlgorithmException;
 
 
@@ -27,15 +26,16 @@ public class LoginController {
     private LoginService loginService;
 
     /**
-     * access_token(访问令牌)和refresh_tokeng(更新令牌) + Redis管理用户信息
+     * 手动登陆，并生成access_token(访问令牌)和refresh_tokeng(更新令牌)
+     *  用户信息交由缓存Redis管理
      *
      * @param account
      * @param passWord
      * @return
      */
-    @GetMapping("/login")
-    public ResultDTO login(@RequestParam("account") String account,
-                           @RequestParam("passWord") String passWord) {
+    @GetMapping("/manuallogin")
+    public ResultDTO manualLogin(@RequestParam("account") String account,
+                                 @RequestParam("passWord") String passWord) {
 
         ResultEnum resultEnum = null;
 
@@ -55,7 +55,25 @@ public class LoginController {
         return new ResultDTO(ResultEnum.ERR_UNKNOWN);
     }
 
+    /**
+     * 自动登陆
+     *
+     * @param account
+     * @param accessToken
+     * @return
+     */
+    @GetMapping("automaticlogin")
+    public ResultDTO autoLogin(@RequestParam("account") String account,
+                               @RequestParam("accessToken") String accessToken) {
 
+        return new ResultDTO(1, "");
+    }
+
+    /**
+     * 自动登陆
+     * @param token
+     * @return
+     */
     @GetMapping("/islogin")
      public ResultDTO isOnlineByToken(@RequestParam("token") String token) {
 

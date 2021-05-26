@@ -1,8 +1,9 @@
 package com.beetle.hanghuasso.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.beetle.hanghuasso.dto.ResultDTO;
+import com.beetle.hanghuasso.entity.User;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 用户注册
@@ -12,4 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/hanghua-sso")
 public class RegisterController {
+
+    @PostMapping("")
+    public ResultDTO registerInfo(@RequestBody User user) {
+
+
+        return new ResultDTO(1, "");
+    }
+
+    @GetMapping("sendVerificationCode")
+    public ResultDTO sendVerificationCode(@RequestParam("email") String email) {
+
+
+        return new ResultDTO(1, "");
+    }
+
+
+
 }

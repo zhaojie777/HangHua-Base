@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
             String accessToken = JWTUtil.creatTokenByRS256(user.getAccount());
             String refreshToken = JWTUtil.creatTokenByRS256(user.getAccount());
             //将用户信息和refreshToken进行缓存
-            RedisUtil.setHash("userInfo#" + user.getAccount(), "refreshToken", refreshToken);
+            RedisUtil.setHash("userInfo#" + user.getAccount(), "refreshToken", refreshToken, 60 * 60 * 24 *7);
             RedisUtil.setHash("userInfo#" + user.getAccount(), "userObject", JsonUtil.toJsonString(user));
         }
 

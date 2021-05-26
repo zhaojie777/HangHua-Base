@@ -19,9 +19,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
+    /**
+     * RedisConnectionFactory交由LettuceConnectionConfiguration自动注入，无需手动传参
+     * @param factory
+     * @return
+     */
     @Bean
     @SuppressWarnings("all")
-    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
+    public static RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
         //声明并创建自定义redisTemplate
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);

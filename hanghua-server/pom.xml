@@ -31,10 +31,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot-version>2.3.10.RELEASE</spring.boot-version>
-        <spring.cloud-version>Hoxton.SR11</spring.cloud-version>
+        <spring.boot-version>2.3.2.RELEASE</spring.boot-version>
+        <spring.cloud-version>Hoxton.SR8</spring.cloud-version>
         <spring.mybatis-version>2.1.0</spring.mybatis-version>
         <alibaba.druid-version>1.2.5</alibaba.druid-version>
+        <alibaba.nacos-version>2.2.5.RELEASE</alibaba.nacos-version>
     </properties>
 
 
@@ -55,6 +56,12 @@
                 <version>${spring.cloud-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${alibaba.nacos-version}</version>
             </dependency>
 
 
