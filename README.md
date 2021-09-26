@@ -13,10 +13,26 @@
 ## 1. 项目简介
 
 - #### 1.1 技术选型
+      微服务框架：Spring Cloud Alibaba(Nacos、Dubbo、Sentinel) 
+      
+      各服务框架：SpringBoot
+ 
+      持久层框架：MyBatisPlus
+      
+      安全框架：Shiro
+ 
+      数据库：MySQL
+ 
+      缓存：Redis
+ 
  
 - #### 1.2 项目结构
  
 - #### 1.3 环境要求
+     系统：CentOS 7
+     JDK版本：Java 1.8.0_241
+     版本控制：git 2.30.1
+     依赖控制：Maven 3.6.0
  
  
 ## 2. 库表设计
