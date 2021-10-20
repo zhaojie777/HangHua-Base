@@ -31,6 +31,7 @@
 - #### 1.3 环境要求
      系统：CentOS 7
      JDK版本：Java 1.8.0_241
+     SDK版本：Android 10
      版本控制：git 2.30.1
      依赖控制：Maven 3.6.0
  
