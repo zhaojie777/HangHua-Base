@@ -13,7 +13,7 @@
 ## 1. 项目简介
 
 - #### 1.1 技术选型
-      微服务组件：Spring Cloud Alibaba(注册中心：Nacos、限流/降级/熔断：Sentinel)、
+      微服务组件：Spring Cloud Alibaba(注册中心/配置中心：Nacos、限流/降级/熔断：Sentinel)、
                  Spring Cloud(服务调用：OpenFeign、负载均衡：LoadBalance)
                  网关：Nginx
       
