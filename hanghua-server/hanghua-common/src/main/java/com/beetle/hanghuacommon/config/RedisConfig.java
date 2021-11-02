@@ -12,7 +12,8 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * 自定义redisTemplate
+ * 自定义配置redisTemplate
+ *
  * @author zhaojie
  * @date 2021-05-06
  */
@@ -21,7 +22,8 @@ public class RedisConfig {
 
     /**
      * RedisConnectionFactory交由LettuceConnectionConfiguration自动注入，无需手动传参
-     * @param factory
+     *
+     * @param RedisConnectionFactory
      * @return
      */
     @Bean
@@ -31,22 +33,23 @@ public class RedisConfig {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
 
-        //序列化为json存储
+        //配置序列化类型：json存储
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
-        //序列化为string存储
+        //配置序列化类型：string存储
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
 
         //key采用string序列化
         template.setKeySerializer(stringRedisSerializer);
         template.setHashKeySerializer(stringRedisSerializer);
-        //value采用jackson序列化
+        //value采用json序列化
         template.setValueSerializer(jackson2JsonRedisSerializer);
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
         template.afterPropertiesSet();
+
         return template;
     }
 
