@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hanghua-common" />
+        <module name="hanghua-mail" />
         <module name="hanghua-article" />
         <module name="hanghua-sso" />
-        <module name="hanghua-mail" />
         <module name="hanghua-authentication" />
-        <module name="hanghua-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

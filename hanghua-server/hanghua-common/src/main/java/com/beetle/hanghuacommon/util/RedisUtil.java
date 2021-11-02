@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RedisUtil {
 
+    // 注入自定义的redisTemplate
     @Autowired
     private static RedisTemplate<String, Object> redisTemplate;
 
@@ -28,8 +29,8 @@ public class RedisUtil {
 
     /**
      * 判断key是否存在
-     * @param key
-     * @return
+     * @param key dd
+     * @return boolean
      */
     public static boolean hasKey(String key) {
         return redisTemplate.hasKey(key);

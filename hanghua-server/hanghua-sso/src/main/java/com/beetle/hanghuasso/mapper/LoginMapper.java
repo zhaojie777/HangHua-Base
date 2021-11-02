@@ -10,6 +10,8 @@ public interface LoginMapper {
 
     User getUserInfoByAccount(String account, String passWord);
 
+    Integer isValidAccount(String account);
+
 
 
 

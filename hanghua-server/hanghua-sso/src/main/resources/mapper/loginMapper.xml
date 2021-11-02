@@ -4,7 +4,7 @@
 <!--namespace：必须是指定mapper接口的全限定类名-->
 <mapper namespace="com.beetle.hanghuasso.mapper.LoginMapper">
     <!--id: 必须是mapper接口的方法名-->
-    <!-- parameterType:参数类型 -->
+    <!--parameterType:参数类型 -->
     <!--resultType: 结果集所映射的类型，填写实体类的完整名字-->
 
 
@@ -27,5 +27,18 @@
                     u.account = #{account}
                     AND u.PASSWORD = #{passWord}
     </select>
+
+
+    <select id="isValidAccount" parameterType="string" resultType="java.lang.Integer">
+                SELECT
+                    count( u.id )
+                FROM
+                    USER u
+                WHERE
+                    u.account = #{account};
+    </select>
+
+
+
 
 </mapper>

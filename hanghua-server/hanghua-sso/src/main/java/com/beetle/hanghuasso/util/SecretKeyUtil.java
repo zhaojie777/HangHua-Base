@@ -18,13 +18,13 @@ import java.security.interfaces.RSAPublicKey;
  * @Description RSA256算法 公钥/密钥 构建工具类
  */
 public class SecretKeyUtil {
-    //数字签名
+    /**数字签名*/
     public static final String KEY_ALGORITHM = "RSA";
 
-    //RSA密钥长度
+    /**RSA密钥长度*/
     public static final int KEY_SIZE = 1024;
 
-    //唯一的密钥实例
+    /**唯一的密钥实例*/
     private static volatile RSA256Key rsa256Key;
 
     /**
@@ -70,7 +70,6 @@ public class SecretKeyUtil {
             synchronized(RSA256Key.class) {
                 //第二次校验：防止锁竞争中自旋的线程，拿到系统资源时，重复创建实例
                 if (rsa256Key == null) {
-                    rsa256Key = new RSA256Key();
                     //密钥生成所需的随机数源
                     KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
                     keyPairGen.initialize(KEY_SIZE);
@@ -79,6 +78,7 @@ public class SecretKeyUtil {
                     //获取公钥和私钥
                     RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
                     RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+                    rsa256Key = new RSA256Key();
                     rsa256Key.setPublicKey(publicKey);
                     rsa256Key.setPrivateKey(privateKey);
                 }

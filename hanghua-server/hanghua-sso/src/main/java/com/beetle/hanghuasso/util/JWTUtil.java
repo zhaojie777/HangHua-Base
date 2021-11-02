@@ -42,9 +42,11 @@ public class JWTUtil {
     public static String creatTokenByRS256(Object data) throws NoSuchAlgorithmException {
         //初始化 公钥/私钥
         RSA256Key rsa256Key = SecretKeyUtil.generateRSA256Key();
-        //根据算法对密钥加密
-        Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPublicKey(),
-                                               rsa256Key.getPrivateKey());
+
+        //加密时，使用私钥生成算法对象
+        Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPrivateKey());
+
+
         return JWT.create()
                 //签发人
                 .withIssuer(ISSUER)
@@ -81,10 +83,11 @@ public class JWTUtil {
         //获取公钥/私钥
         RSA256Key rsa256Key = SecretKeyUtil.generateRSA256Key();
 
-        //生成算法对象
-        Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPublicKey(),
-                                               rsa256Key.getPrivateKey());
+        //根据密钥对生成RS256算法对象
+        Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPublicKey());
 
+        System.out.println("PublicKey: " + rsa256Key.getPublicKey().getPublicExponent());
+        //解密时，使用gong钥生成算法对象
         JWTVerifier verifier = JWT.require(algorithm)
                                     .withIssuer(ISSUER)
                                     .build();
@@ -94,9 +97,9 @@ public class JWTUtil {
             DecodedJWT jwt = verifier.verify(token);
             return true;
         }catch (JWTVerificationException e){
-            log.error("Token无法通过验证!");
-            return false;
+            log.error("Token无法通过验证! 异常信息：" + e.getMessage());
 
+            return false;
         }
 
 
@@ -121,6 +124,7 @@ public class JWTUtil {
 //     */
 //    public static String getPayLoad(String token) throws NoSuchAlgorithmException {
 //        DecodedJWT jwt = getDecodedJWT(token);
+//        return jwt.getPayload();
 //        return jwt.getPayload();
 //    }
 //

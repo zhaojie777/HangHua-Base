@@ -29,6 +29,11 @@ public class SendServiceImpl implements SendService {
     private String from;
 
 
+    /**
+     * 普通文本邮件
+     * @param email
+     * @return
+     */
     @Override
     public Map<String, String> sendCommonEmail(EmailProperties email) {
         //创建简单邮件消息
@@ -56,6 +61,12 @@ public class SendServiceImpl implements SendService {
 
     }
 
+    /**
+     * 复杂的html格式邮件
+     * @param email
+     * @return
+     * @throws MessagingException
+     */
     @Override
     public Map<String, String> sendHtmlEmail(EmailProperties email) throws MessagingException {
         //创建Mime邮件消息

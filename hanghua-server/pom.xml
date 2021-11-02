@@ -32,15 +32,20 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.boot-version>2.3.2.RELEASE</spring.boot-version>
-        <spring.cloud-version>Hoxton.SR8</spring.cloud-version>
+        <spring.cloud-version>Hoxton.SR9</spring.cloud-version>
+        <spring.cloud.alibaba-version>2.2.6.RELEASE</spring.cloud.alibaba-version>
+        <mysql.version>8.0.15</mysql.version>
         <spring.mybatis-version>2.1.0</spring.mybatis-version>
         <alibaba.druid-version>1.2.5</alibaba.druid-version>
-        <alibaba.nacos-version>2.2.5.RELEASE</alibaba.nacos-version>
+        <test.junit5-version>5.7.2</test.junit5-version>
+        <swagger2.version>2.2.2</swagger2.version>
     </properties>
 
 
+    <!--dependencyManagement管理的依赖，不会直接继承给子模块，需要子模块显示声明，但为子模块的依赖管理了版本号-->
     <dependencyManagement>
         <dependencies>
+
             <!--springboot相关依赖-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -49,35 +54,37 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
             <!--springcloud相关依赖-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud-version}</version>
                 <type>pom</type>
+                <scope>impot</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba-version}</version>
+                <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>${alibaba.nacos-version}</version>
-            </dependency>
 
-
-            <!--spring-mybatis相关依赖-->
+            <!--数据库操作相关依赖-->
+            <!--spring-mybatis依赖-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${spring.mybatis-version}</version>
             </dependency>
-
-
-            <!--mysql相关依赖-->
+            <!--mysql驱动-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.15</version>
+                <version>${mysql.version}</version>
             </dependency>
             <!--druid数据源-->
             <dependency>
@@ -86,13 +93,30 @@
                 <version>${alibaba.druid-version}</version>
             </dependency>
 
+            <!--Junit5-->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${test.junit5-version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+            <!--Swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>
-
-
-
-
 
 
 
