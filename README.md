@@ -15,13 +15,13 @@
 - #### 1.1 技术选型
       微服务组件：Spring Cloud Alibaba(注册中心/配置中心：Nacos、限流/降级/熔断：Sentinel)、
                  Spring Cloud(服务调用：OpenFeign、负载均衡：LoadBalance)
-                 网关：Nginx
+                 网关：Nginx + Gateway
       
       各服务框架：SpringBoot
  
-      持久层框架：MyBatisPlus
+      持久层框架：MyBatis Plus
       
-      安全框架：Shiro
+      安全框架：Spring Security
  
       数据库：MySQL
  
@@ -31,22 +31,35 @@
 - #### 1.2 项目结构
  
 - #### 1.3 环境要求
-      操作系统：CentOS 7、
-      JDK版本：Java 1.8.0_241、
+      操作系统：CentOS 7.0、
+      JDK版本：Java 1.8.0_311、
       SDK版本：Android 10、
-      版本控制：git 2.30.1、
-      依赖控制：Maven 3.6.0、
- 
-## 2. 库表设计
+      版本控制：git 2.33.1、
+      依赖控制：Maven 3.6.3、
  
  
-## 3. 服务详情
+ 
+## 2. 服务详情
+- #### 2.1 账户中心服务
+&emsp;&emsp;**授权登录**</br>
+     通过客户端对
+ 
+&emsp;&emsp;**手动登录**</br>
+     ddd
+ 
+&emsp;&emsp;**注册账户**</br>
+     ddd
+ 
+&emsp;&emsp;**自动登录**</br>
+     ddd
+   
+   
  
  
-## 4. 环境部署
+## 3. 环境部署
  
  
-## 5. 结束
+## 4. 总结
  
 
 
