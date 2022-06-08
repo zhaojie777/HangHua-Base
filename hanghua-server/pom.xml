@@ -15,9 +15,9 @@
         <!--账户管理中心-->
         <module>hanghua-account-center</module>
         <!--授权服务器-->
-        <module>hanghua-auth-server</module>
-        <!--资源服务器-->
-        <module>hanghua-resource-server</module>
+        <module>hanghua-auth</module>
+        <!--网关服务：整合资源服务、token验证、鉴权-->
+        <module>hanghua-gateway</module>
         <!--通用工具-->
         <module>hanghua-common</module>
         <!--文章服务-->
@@ -26,6 +26,7 @@
         <module>hanghua-im</module>
         <!--邮件服务-->
         <module>hanghua-mail</module>
+
     </modules>
 
     <!--参数列表-->

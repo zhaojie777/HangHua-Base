@@ -6,20 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hanghua-gateway" />
         <module name="hanghua-mail" />
         <module name="hanghua-im" />
-        <module name="hanghua-auth-server" />
         <module name="hanghua-common" />
+        <module name="hanghua-auth" />
         <module name="hanghua-account-center" />
         <module name="hanghua-article" />
-        <module name="hanghua-resource-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="hanghua-auth" target="1.8" />
       <module name="hanghua-eureka-server" target="1.8" />
       <module name="hanghua-hystrix-dashboard" target="1.8" />
       <module name="hanghua-nacos" target="1.8" />
+      <module name="hanghua-resource-server" target="1.8" />
       <module name="hanghua-ribbon-consumer" target="1.8" />
       <module name="hanghua-zuul" target="1.8" />
     </bytecodeTargetLevel>

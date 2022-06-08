@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!--  父模块，控制依赖版本  -->
     <parent>
         <groupId>com.beetle</groupId>
         <artifactId>hanghua-server</artifactId>
@@ -13,9 +12,9 @@
     </parent>
 
     <groupId>com.beetle</groupId>
-    <artifactId>hanghua-account-center</artifactId>
+    <artifactId>hanghua-auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hanghua-account-center</name>
+    <name>hanghua-auth</name>
     <description>Demo project for Spring Boot</description>
 
 
@@ -31,7 +30,8 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- Spring security & Oauth2-->
+
+        <!-- Spring security & Oauth2 授权服务器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -50,7 +50,7 @@
         </dependency>
 
 
-        <!--SpringCloud微服务组件-->
+        <!--SpringCloud微服务环境-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
@@ -71,9 +71,7 @@
         </dependency>
 
 
-
-
-        <!-- 数据持久化：mysql、mybatis -->
+        <!--数据持久化：mysql、mybatis-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -94,18 +92,6 @@
         </dependency>
 
 
-        <!--Junit5测试环境-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-
 
         <!--Swagger3接口文档-->
         <dependency>
@@ -113,9 +99,13 @@
             <artifactId>springfox-boot-starter</artifactId>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
-
 
 
     <build>
