@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/hanghua-common/pom.xml" />
         <option value="$PROJECT_DIR$/hanghua-article/pom.xml" />
         <option value="$PROJECT_DIR$/hanghua-authentication/pom.xml" />
+        <option value="$PROJECT_DIR$/hanghua-im/pom.xml" />
+        <option value="$PROJECT_DIR$/hanghua-resource-server/pom.xml" />
       </list>
     </option>
   </component>

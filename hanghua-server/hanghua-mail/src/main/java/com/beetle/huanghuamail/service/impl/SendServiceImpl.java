@@ -8,6 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
@@ -22,8 +23,9 @@ import java.util.Map;
 @ConfigurationProperties(prefix = "spring.mail")
 public class SendServiceImpl implements SendService {
 
-    @Autowired
-    private JavaMailSender mailSender;
+    // 自动注入失败，改由主动创建实例对象
+//    @Autowired
+    private JavaMailSender mailSender = new JavaMailSenderImpl();
 
     @Value("${spring.mail.username}")
     private String from;

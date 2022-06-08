@@ -12,15 +12,15 @@
     </parent>
 
     <groupId>com.beetle</groupId>
-    <artifactId>hanghua-article</artifactId>
+    <artifactId>hanghua-auth-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hanghua-article</name>
+    <name>hanghua-auth-server</name>
     <description>Demo project for Spring Boot</description>
 
 
 
     <dependencies>
-        <!-- Spring基本环境依赖 -->
+        <!-- SpringBoot基本环境依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -29,6 +29,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <!-- Spring security & Oauth2 授权服务器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
 
 
@@ -61,8 +71,6 @@
         </dependency>
 
 
-
-
         <!--数据持久化：mysql、mybatis-->
         <dependency>
             <groupId>mysql</groupId>
@@ -85,22 +93,19 @@
 
 
 
-
-        <!--Swagger文档-->
+        <!--Swagger3接口文档-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
         </dependency>
 
 
-        <!--测试环境-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 
 
     <build>

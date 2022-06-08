@@ -12,26 +12,16 @@
 
 
     <groupId>com.beetle</groupId>
-    <artifactId>huanghua-mail</artifactId>
+    <artifactId>hanghua-mail</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>huanghua-mail</name>
+    <name>hanghua-mail</name>
     <description>Demo project for Spring Boot</description>
 
 
 
 
     <dependencies>
-        <!-- 基本环境   -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!-- SpringBoot基本环境   -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,20 +31,28 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-        <!--  工具   -->
+
+        <!--  本地工具   -->
         <dependency>
             <groupId>com.beetle</groupId>
             <artifactId>hanghua-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <!--微服务-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-        </dependency>
+
+        <!--SpringCloud微服务组件-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -62,7 +60,7 @@
         </dependency>
 
 
-
+        <!-- 邮件环境 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
@@ -82,6 +80,12 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+        <!-- Swagger文档 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+        </dependency>
+
 
 
         <dependency>
@@ -98,7 +102,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.3.10.RELEASE</version>
             </plugin>
         </plugins>
     </build>

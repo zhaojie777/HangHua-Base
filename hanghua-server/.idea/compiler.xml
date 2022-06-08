@@ -6,14 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="hanghua-common" />
         <module name="hanghua-mail" />
+        <module name="hanghua-im" />
+        <module name="hanghua-auth-server" />
+        <module name="hanghua-common" />
+        <module name="hanghua-account-center" />
         <module name="hanghua-article" />
-        <module name="hanghua-sso" />
-        <module name="hanghua-authentication" />
+        <module name="hanghua-resource-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hanghua-auth" target="1.8" />
       <module name="hanghua-eureka-server" target="1.8" />
       <module name="hanghua-hystrix-dashboard" target="1.8" />
       <module name="hanghua-nacos" target="1.8" />
@@ -23,14 +26,15 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hanghua-account-center" options="" />
       <module name="hanghua-article" options="" />
-      <module name="hanghua-authentication" options="" />
+      <module name="hanghua-auth" options="" />
       <module name="hanghua-common" options="" />
       <module name="hanghua-eureka-server" options="" />
+      <module name="hanghua-im" options="" />
       <module name="hanghua-mail" options="" />
       <module name="hanghua-nacos" options="" />
       <module name="hanghua-ribbon-consumer" options="" />
-      <module name="hanghua-sso" options="" />
       <module name="hanghua-zuul" options="" />
     </option>
   </component>

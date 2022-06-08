@@ -12,18 +12,20 @@
     <description>parent of huanghua</description>
 
     <modules>
-<!--        &lt;!&ndash;服务注册中心&ndash;&gt;-->
-<!--        <module>hanghua-nacos</module>-->
-        <!--单点登陆-->
-        <module>hanghua-sso</module>
-        <!--邮件服务-->
-        <module>hanghua-mail</module>
-        <!--通用工具服务-->
+        <!--账户管理中心-->
+        <module>hanghua-account-center</module>
+        <!--授权服务器-->
+        <module>hanghua-auth-server</module>
+        <!--资源服务器-->
+        <module>hanghua-resource-server</module>
+        <!--通用工具-->
         <module>hanghua-common</module>
         <!--文章服务-->
         <module>hanghua-article</module>
-        <!--鉴权服务-->
-        <module>hanghua-authentication</module>
+        <!--IM即时通讯-->
+        <module>hanghua-im</module>
+        <!--邮件服务-->
+        <module>hanghua-mail</module>
     </modules>
 
     <!--参数列表-->
@@ -36,9 +38,10 @@
         <spring.cloud.alibaba-version>2.2.6.RELEASE</spring.cloud.alibaba-version>
         <mysql.version>8.0.15</mysql.version>
         <spring.mybatis-version>2.1.0</spring.mybatis-version>
+        <mybatis.pagehelper-version>1.4.2</mybatis.pagehelper-version>
         <alibaba.druid-version>1.2.5</alibaba.druid-version>
         <test.junit5-version>5.7.2</test.junit5-version>
-        <swagger2.version>2.2.2</swagger2.version>
+        <swagger3.version>3.0.0</swagger3.version>
     </properties>
 
 
@@ -62,7 +65,7 @@
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud-version}</version>
                 <type>pom</type>
-                <scope>impot</scope>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
@@ -80,20 +83,27 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${spring.mybatis-version}</version>
             </dependency>
+            <!--Mybatis分页插件-->
+<!--            <dependency>-->
+<!--                <groupId>com.github.pagehelper</groupId>-->
+<!--                <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--                <version>${mybatis.pagehelper-version}</version>-->
+<!--            </dependency>-->
             <!--mysql驱动-->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-            <!--druid数据源-->
+            <!--druid连接池-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${alibaba.druid-version}</version>
             </dependency>
 
-            <!--Junit5-->
+
+            <!--Junit5单元测试-->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
@@ -102,18 +112,12 @@
             </dependency>
 
 
-            <!--Swagger2-->
+            <!--Swagger3接口文档-->
             <dependency>
                 <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${swagger2.version}</version>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger3.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${swagger2.version}</version>
-            </dependency>
-
 
         </dependencies>
     </dependencyManagement>

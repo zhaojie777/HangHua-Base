@@ -1,5 +1,7 @@
 package com.beetle.huanghuamail.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -10,16 +12,21 @@ import java.io.Serializable;
  * @date 2021-04-26
  * @Description 邮件属性
  */
+@ApiModel
 @Component
 public class EmailProperties implements Serializable {
 
     //邮件接收者
+    @ApiModelProperty(value = "邮件接收者")
     private String receiver;
 
+
     //邮件主题
+    @ApiModelProperty(value = "邮件主题")
     private String subject;
 
     //邮件内容
+    @ApiModelProperty(value = "邮件内容")
     private String content;
 
     public EmailProperties() {
