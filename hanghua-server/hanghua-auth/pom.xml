@@ -31,15 +31,21 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Spring security & Oauth2 授权服务器-->
+        <!-- Spring security & Oauth2.0授权服务器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-authorization-server</artifactId>
+            <version>0.3.0</version>
         </dependency>
+        <!-- 2022.5 停止维护 Spring Security Oauht项目-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-oauth2-client</artifactId>-->
+<!--        </dependency>-->
 
 
         <!--本地工具-->
