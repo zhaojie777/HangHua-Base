@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author zhaojie
@@ -43,8 +45,9 @@ public class LoginServiceImpl implements LoginService {
             return ResultEnum.ERR_INVALID_PASSWORD;
         } else {
             //生成token
-            String accessToken = JwtTokenUtil.creatTokenByRS256(user.getAccount());
-            String refreshToken = JwtTokenUtil.creatTokenByRS256(user.getAccount());
+            Map<String, Object> userInfo = new HashMap<>();
+            String accessToken = JwtTokenUtil.generateTokenByRS256((Map<String, Object>) userInfo.put(user.getAccount(), user));
+            String refreshToken = JwtTokenUtil.generateTokenByRS256((Map<String, Object>) userInfo.put(user.getAccount(), user));
 
             //通过Redis缓存用户信息和refreshToken
             RedisUtil.setHash("userInfo#" + user.getAccount(), "accessToken", accessToken, 60 * 60 * 24 * 3);

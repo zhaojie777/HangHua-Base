@@ -1,5 +1,6 @@
 package com.beetle.hanghuacommon.util;
 
+import com.auth0.jwt.interfaces.RSAKeyProvider;
 import com.beetle.hanghuacommon.entity.RSA256Key;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -25,37 +26,41 @@ public class SecretKeyUtil {
     public static final int KEY_SIZE = 1024;
 
     /**唯一的密钥实例*/
-    private static volatile RSA256Key rsa256Key;
+    private static volatile RSA256Key rsa256Key = null;
 
     /**
      * 获取公钥
-     * @param rsa256Key
      * @return String
      */
-    public static String getPublicKey(RSA256Key rsa256Key) {
-        //获得公钥对象，转为Key对象
-        Key key = rsa256Key.getPublicKey();
-        //获取公钥的byte数组
-        byte[] publicKey = key.getEncoded();
-        return encryptBASE64(publicKey);
+    public static RSAPublicKey getPublicKey() {
+        RSAPublicKey publicKey = null;
+        if (rsa256Key != null) {
+            //获得公钥对象，转为Key对象
+            publicKey = rsa256Key.getPublicKey();
+        } else {
+            throw new IllegalArgumentException("密钥对为空，无法正常生成token！");
+        }
+        return publicKey;
     }
 
-    /**
-     * 获取私钥
-     * @param rsa256Key
-     * @return
-     */
-    public static String getPrivateKey(RSA256Key rsa256Key) {
-        //获取私钥对象，转为Key对象
-        Key key = rsa256Key.getPrivateKey();
-        //获取私钥的byte数组
-        byte[] privateKey = key.getEncoded();
-        return encryptBASE64(privateKey);
-    }
+//
+//    /**
+//     * 获取私钥
+//     * @return
+//     */
+//    public static String getPrivateKey() {
+//        if (rsa256Key != null) {
+//            //获取私钥对象，转为Key对象
+//            Key key = rsa256Key.getPrivateKey();
+//        }
+//        //获取私钥的byte数组
+//        byte[] privateKey = key.getEncoded();
+//        return encryptBASE64(privateKey);
+//    }
 
 
     /**
-     * 生成 公钥/私钥
+     * 生成RSA256密钥对,公钥验证，私钥签名
      *
      *  由双重校验锁保证创建唯一的密钥实例，因此创建完成后仅有唯一实例。
      *  当被JVM回收后，才会创建新的实例
@@ -78,6 +83,7 @@ public class SecretKeyUtil {
                     //获取公钥和私钥
                     RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
                     RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+
                     rsa256Key = new RSA256Key();
                     rsa256Key.setPublicKey(publicKey);
                     rsa256Key.setPrivateKey(privateKey);
@@ -90,23 +96,25 @@ public class SecretKeyUtil {
 
 
 
-    /**
-     * BASE64解码
-     * @param key
-     * @return byte[]
-     * @throws IOException
-     */
-    public static byte[] decryptBASE64(String key) throws IOException {
-        return (new BASE64Decoder()).decodeBuffer(key);
-    }
-    /**
-     * BASE64编码
-     * @param key
-     * @return string
-     */
-    public static String encryptBASE64(byte[] key) {
-        return (new BASE64Encoder()).encodeBuffer(key);
-    }
+//    /**
+//     * BASE64解码
+//     * @param key
+//     * @return byte[]
+//     * @throws IOException
+//     */
+//    public static byte[] decryptBASE64(String key) throws IOException {
+//        return (new BASE64Decoder()).decodeBuffer(key);
+//    }
+//    /**
+//     * BASE64编码
+//     * @param key
+//     * @return string
+//     */
+//    public static String encryptBASE64(byte[] key) {
+//        return (new BASE64Encoder()).encodeBuffer(key);
+//    }
+
+
 
 
 }

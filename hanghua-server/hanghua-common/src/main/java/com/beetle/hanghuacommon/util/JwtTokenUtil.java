@@ -11,7 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Map;
 
 
 /**
@@ -37,12 +39,12 @@ public class JwtTokenUtil {
      * @return
      * @throws NoSuchAlgorithmException
      */
-    public static String creatTokenByRS256(Object data) throws NoSuchAlgorithmException {
+    public static String generateTokenByRS256(Map<String, Object> data) throws NoSuchAlgorithmException {
         //初始化 公钥/私钥
         RSA256Key rsa256Key = SecretKeyUtil.generateRSA256Key();
 
-        //加密时，使用私钥生成算法对象
-        Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPrivateKey());
+        //加密时，使用私钥签名
+        Algorithm algorithm = Algorithm.RSA256(null, rsa256Key.getPrivateKey());
 
 
         return JWT.create()
@@ -55,7 +57,7 @@ public class JwtTokenUtil {
                 //过期时间
                 .withExpiresAt(DateUtil.addHours(2))
                 //相关信息
-                .withClaim("data", JsonUtil.toJsonString(data))
+                .withClaim("userInfo", JsonUtil.toJsonString(data))
                 //签入
                 .sign(algorithm);
     }
@@ -78,11 +80,8 @@ public class JwtTokenUtil {
      */
     public static void verifierToken(String token) throws NoSuchAlgorithmException {
 
-        //获取公钥/私钥
-        RSA256Key rsa256Key = SecretKeyUtil.generateRSA256Key();
-
-        //根据密钥对生成RS256算法对象
-        Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPublicKey());
+        //解密时，使用公钥校验
+        Algorithm algorithm = Algorithm.RSA256(SecretKeyUtil.getPublicKey(), null);
 
         try {
             //解密时，使用gong钥生成算法对象
@@ -104,54 +103,53 @@ public class JwtTokenUtil {
      * @param token
      * @return
      */
-    public static Object getUserInfo(String token) {
+    public static Map<String, Object> getUserInfo(String token) {
         DecodedJWT decode = JWT.decode(token);
-        return decode.getClaim("data");
+        return decode.getClaim("userInfo").asMap();
     }
 
 
 
-//
-//    /**
-//     * 获取token的header信息
-//     * @param token
-//     * @return
-//     */
-//    public static String getHeader(String token) throws NoSuchAlgorithmException {
-//        DecodedJWT jwt = getDecodedJWT(token);
-//        return jwt.getHeader();
-//    }
-//
-//    /**
-//     * 获取token的payload的信息
-//     * @param token
-//     * @return
-//     * @throws NoSuchAlgorithmException
-//     */
-//    public static String getPayLoad(String token) throws NoSuchAlgorithmException {
-//        DecodedJWT jwt = getDecodedJWT(token);
-//        return jwt.getPayload();
-//        return jwt.getPayload();
-//    }
-//
-//
-//    /**
-//     * 验证Token是否过期
-//     * @param token
-//     * @return
-//     * @throws NoSuchAlgorithmException
-//     */
-//    public static boolean isExpireToken(String token) throws NoSuchAlgorithmException {
-//        DecodedJWT jwt = getDecodedJWT(token);
-//        //过期时间
-//        Date expiredDate = jwt.getExpiresAt();
-//        LocalDateTime expired = DateUtil.changeDateToLocalDateTime(expiredDate);
-//        if (LocalDateTime.now().isBefore(expired)) {
-//            return true;
-//        }
-//        return false;
-//    }
-//
+
+    /**
+     * 获取token的header信息
+     * @param token
+     * @return
+     */
+    public static String getHeader(String token) throws NoSuchAlgorithmException {
+        DecodedJWT jwt = JWT.decode(token);
+        return jwt.getHeader();
+    }
+
+    /**
+     * 获取token的payload的信息
+     * @param token
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
+    public static String getPayLoad(String token) throws NoSuchAlgorithmException {
+        DecodedJWT jwt = JWT.decode(token);
+        return jwt.getPayload();
+    }
+
+
+    /**
+     * 验证Token是否过期
+     * @param token
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
+    public static boolean isExpireToken(String token) throws NoSuchAlgorithmException {
+        DecodedJWT jwt = JWT.decode(token);
+        //过期时间
+        Date expiredDate = jwt.getExpiresAt();
+        LocalDateTime expired = DateUtil.changeDateToLocalDateTime(expiredDate);
+        if (LocalDateTime.now().isBefore(expired)) {
+            return true;
+        }
+        return false;
+    }
+
 
 
 

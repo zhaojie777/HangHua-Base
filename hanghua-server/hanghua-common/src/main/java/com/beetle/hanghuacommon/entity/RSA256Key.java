@@ -40,4 +40,9 @@ public class RSA256Key {
     public void setPrivateKey(RSAPrivateKey privateKey) {
         this.privateKey = privateKey;
     }
+
+    @Override
+    public String toString() {
+        return "[publicKey]：" + publicKey.toString() + ",[privateKey]：" + privateKey.toString();
+    }
 }
