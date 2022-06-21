@@ -13,7 +13,7 @@
 
     <modules>
         <!-- 账户信息服务 -->
-        <module>hanghua-account-center</module>
+        <module>hanghua-account</module>
         <!-- 文章服务 -->
         <module>hanghua-article</module>
         <!-- 评论服务 -->

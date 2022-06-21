@@ -13,9 +13,9 @@
     </parent>
 
     <groupId>com.beetle</groupId>
-    <artifactId>hanghua-account-center</artifactId>
+    <artifactId>hanghua-account</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hanghua-account-center</name>
+    <name>hanghua-account</name>
     <description>Demo project for Spring Boot</description>
 
 
