@@ -21,6 +21,8 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <knife4j.version>2.0.9</knife4j.version>
+        <swagger3.version>3.0.0</swagger3.version>
     </properties>
 
 
@@ -78,15 +80,16 @@
 <!--        </dependency>-->
 
 
-        <!-- 集成Swagger3接口文档 -->
+        <!-- 网关聚合文档服务：Swagger3接口文档 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger3.version}</version>
         </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>2.0.9</version>
+            <version>${knife4j.version}</version>
         </dependency>
 
 

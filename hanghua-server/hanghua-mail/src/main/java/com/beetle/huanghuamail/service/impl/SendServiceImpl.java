@@ -27,7 +27,7 @@ public class SendServiceImpl implements SendService {
 //    @Autowired
     private JavaMailSender mailSender = new JavaMailSenderImpl();
 
-    @Value("${spring.mail.username}")
+    @Value("${username}")
     private String from;
 
 

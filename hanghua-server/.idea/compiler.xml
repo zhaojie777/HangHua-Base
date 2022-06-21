@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hanghua-gateway" />
+        <module name="hanghua-comment" />
         <module name="hanghua-mail" />
         <module name="hanghua-im" />
         <module name="hanghua-common" />

@@ -19,6 +19,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * @auther zhaojie
  * @date 2022/06/14 15:32
@@ -68,25 +69,10 @@ public class Swagger3Config implements EnvironmentAware {
     }
 
 
-//    @Bean
-//    public WebMvcEndpointHandlerMapping webEndpointServletHandlerMapping(
-//            WebEndpointsSupplier webEndpointsSupplier, ServletEndpointsSupplier servletEndpointsSupplier,
-//            ControllerEndpointsSupplier controllerEndpointsSupplier, EndpointMediaTypes endpointMediaTypes,
-//            CorsEndpointProperties corsProperties, WebEndpointProperties webEndpointProperties, Environment environment) {
-//        List<ExposableEndpoint<?>> allEndpoints = new ArrayList<>();
-//        Collection<ExposableWebEndpoint> webEndpoints = webEndpointsSupplier.getEndpoints();
-//        allEndpoints.addAll(webEndpoints);
-//        allEndpoints.addAll(servletEndpointsSupplier.getEndpoints());
-//        allEndpoints.addAll(controllerEndpointsSupplier.getEndpoints());
-//        String basePath = webEndpointProperties.getBasePath();
-//        EndpointMapping endpointMapping = new EndpointMapping(basePath);
-//        boolean shouldRegisterLinksMapping = webEndpointProperties.getDiscovery().isEnabled() &&
-//                (org.springframework.util.StringUtils.hasText(basePath) || ManagementPortType.get(environment).equals(ManagementPortType.DIFFERENT));
-//        return new WebMvcEndpointHandlerMapping(endpointMapping, webEndpoints, endpointMediaTypes, corsProperties.toCorsConfiguration(), new EndpointLinksResolver(allEndpoints, basePath), shouldRegisterLinksMapping, null);
-//    }
-
-
-
+    /**
+     * 获取配置文件内数据
+     * @param environment
+     */
     @Override
     public void setEnvironment(Environment environment) {
         this.applicationName = environment.getProperty("swagger.name");
@@ -104,7 +90,6 @@ public class Swagger3Config implements EnvironmentAware {
         responseList.add(new ResponseBuilder().code("404").description("未找到资源").build());
         return responseList;
     }
-
 
 
 }

@@ -89,13 +89,6 @@
 
 
 
-<!--        &lt;!&ndash;Swagger3文档&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-boot-starter</artifactId>-->
-<!--        </dependency>-->
-
-
         <!--测试环境-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
