@@ -21,13 +21,14 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <knife4j.version>2.0.9</knife4j.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <swagger3.version>3.0.0</swagger3.version>
     </properties>
 
 
     <dependencies>
         <!-- SpringBoot基本环境依赖 -->
+        <!-- swagger基于webFlux，和webmvc会产生依赖冲突 -->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-web</artifactId>-->
@@ -73,19 +74,20 @@
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-security</artifactId>-->
 <!--        </dependency>-->
-        <!-- 2022.5 停止维护 Spring Security Oauht项目-->
+        <!-- 2022.5 停止维护 Spring Security Oauth项目-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>-->
 <!--        </dependency>-->
 
 
-        <!-- 网关聚合文档服务：Swagger3接口文档 -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>${swagger3.version}</version>
-        </dependency>
+        <!-- 网关聚合API文档服务：Swagger3接口文档 -->
+        <!-- knife4j已经集成了springfox，无需重复引入 -->
+<!--        <dependency>-->
+<!--            <groupId>io.springfox</groupId>-->
+<!--            <artifactId>springfox-boot-starter</artifactId>-->
+<!--            <version>${swagger3.version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>

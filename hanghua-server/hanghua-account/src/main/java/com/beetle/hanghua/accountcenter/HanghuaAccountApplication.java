@@ -13,10 +13,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableDiscoveryClient
 @EnableScheduling
 @SpringBootApplication
-public class HanghuaAccountCenterApplication {
+public class HanghuaAccountApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HanghuaAccountCenterApplication.class, args);
+        SpringApplication.run(HanghuaAccountApplication.class, args);
     }
 
 }

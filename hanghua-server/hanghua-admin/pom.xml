@@ -20,6 +20,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
 
     <dependencies>
@@ -53,14 +54,27 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- Spring security & Oauth2.0资源服务器-->
+
+        <!-- Spring Security 5中集成了OAuth2 Client和Resource Server两个模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+
+        <!-- 非UI端的swagger包 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+
+
+        <!-- 本地工具 -->
+        <dependency>
+            <groupId>com.beetle</groupId>
+            <artifactId>hanghua-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
 

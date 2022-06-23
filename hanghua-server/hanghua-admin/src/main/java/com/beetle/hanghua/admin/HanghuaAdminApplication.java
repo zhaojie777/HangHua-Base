@@ -5,11 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 
 /**
  * @auther zhaojie
  * @date 2022/06/21 14:59
  **/
+@EnableOpenApi
 @RefreshScope
 @EnableFeignClients
 @EnableDiscoveryClient

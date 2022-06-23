@@ -24,6 +24,9 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
 
     public static final String API_URI = "/v2/api-docs";
 
+    /**
+     * RouteLocator，GatewayProperties这两个类都是springcloud提供的bean对象,自动注入
+     */
     private final RouteLocator routeLocator;
 
     private final GatewayProperties gatewayProperties;
@@ -42,7 +45,8 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
         List<String> routes = new ArrayList<>();
         //取出gateway的route
         routeLocator.getRoutes().subscribe(route -> routes.add(route.getId()));
-        //结合配置的route-路径(Path)，和route过滤，只获取有效的route节点
+
+        //结合配置的routes路径(Path)，和filters过滤，只获取有效的route节点
         gatewayProperties.getRoutes().stream().filter(routeDefinition -> routes.contains(routeDefinition.getId()))
                 .forEach(routeDefinition -> routeDefinition.getPredicates().stream()
                         .filter(predicateDefinition -> ("Path").equalsIgnoreCase(predicateDefinition.getName()))
@@ -51,6 +55,7 @@ public class SwaggerProvider implements SwaggerResourcesProvider {
                                         .replace("/**", API_URI)))));
         return resources;
     }
+
 
     private SwaggerResource swaggerResource(String name, String location) {
         SwaggerResource swaggerResource = new SwaggerResource();

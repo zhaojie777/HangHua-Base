@@ -18,6 +18,11 @@
     <description>Demo project for Spring Boot</description>
 
 
+    <properties>
+        <knife4j.version>3.0.3</knife4j.version>
+    </properties>
+
+
 
 
     <dependencies>
@@ -32,12 +37,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!--  本地工具   -->
-        <dependency>
-            <groupId>com.beetle</groupId>
-            <artifactId>hanghua-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+
 
         <!--SpringCloud微服务组件-->
         <dependency>
@@ -64,6 +64,24 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+
+
+        <!--  本地工具   -->
+        <dependency>
+            <groupId>com.beetle</groupId>
+            <artifactId>hanghua-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 非UI端的swagger包 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+
+
 
         <!-- 邮件环境 -->
         <dependency>

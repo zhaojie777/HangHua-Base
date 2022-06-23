@@ -27,10 +27,4 @@ swagger:
   description: 行业内容社区
 
 
-# swagger3.0配置
-springfox:
-  documentation:
-    swagger-ui:
-      enabled: false
-
 

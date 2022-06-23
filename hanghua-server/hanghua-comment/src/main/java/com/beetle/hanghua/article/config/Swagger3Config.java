@@ -1,6 +1,6 @@
-package com.beetle.hanghuacommon.config;
+package com.beetle.hanghua.article.config;
 
-import io.swagger.annotations.ApiOperation;
+
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,6 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.builders.ResponseBuilder;
-import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.Response;
@@ -21,11 +20,11 @@ import java.util.List;
 
 
 /**
+ * swagger只要求在开发环境下才会开启
  * @auther zhaojie
  * @date 2022/06/14 15:32
  **/
 @Configuration
-@EnableOpenApi
 public class Swagger3Config implements EnvironmentAware {
 
 
@@ -40,16 +39,21 @@ public class Swagger3Config implements EnvironmentAware {
      */
     @Bean
     public Docket creatRestApi() {
+        // OAS_30指定版本
         return new Docket(DocumentationType.OAS_30)
-                .apiInfo(apiInfo())
+                // 开关
+                .enable(true)
+                // 生成页面信息
+                .apiInfo(createApiInfo())
+                // 过滤规则：必须借助select()和apis()
                 .select()
                 //为当前包下controller生成API文档
-//                .apis(RequestHandlerSelectors.basePackage("com.beetle.hanghua.accountcenter.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.beetle.hanghua.comment.controller"))
                 //为有@Api注解的Controller生成API文档
 //                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 //为有@ApiOperation注解的方法生成API文档
-                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-                // 为所有Api注解生成文档
+//                .apis(RequestHandlerSelectors.withMethodAnnotation(Operation.class))
+                // 为所有Api注解生成文档,any()是全部生效，none()是全部无效
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -59,10 +63,11 @@ public class Swagger3Config implements EnvironmentAware {
      *  生成接口信息，包括标题、联系人等
      * @return
      */
-    private ApiInfo apiInfo() {
+    private ApiInfo createApiInfo() {
         return new ApiInfoBuilder()
                 .title(applicationName + "接口文档")
                 .description(applicationDescription)
+                .termsOfServiceUrl("")
                 .contact(new Contact("admin","http://www.zjmaster.top","zhaojie777j@gmail.com"))
                 .version("1.0")
                 .build();

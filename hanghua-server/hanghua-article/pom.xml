@@ -18,6 +18,10 @@
     <description>Demo project for Spring Boot</description>
 
 
+    <properties>
+        <knife4j.version>3.0.3</knife4j.version>
+    </properties>
+
 
     <dependencies>
         <!-- Spring基本环境依赖 -->
@@ -58,10 +62,18 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- Spring security-->
+        <!-- Spring Security 5中集成了OAuth2 Client和Resource Server两个模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+
+        <!-- 非UI端的swagger包 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
 
 

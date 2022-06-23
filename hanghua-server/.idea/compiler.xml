@@ -8,12 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hanghua-gateway" />
+        <module name="hanghua-account" />
         <module name="hanghua-comment" />
         <module name="hanghua-mail" />
         <module name="hanghua-im" />
         <module name="hanghua-common" />
         <module name="hanghua-auth" />
-        <module name="hanghua-account-center" />
         <module name="hanghua-admin" />
         <module name="hanghua-article" />
       </profile>
@@ -29,7 +29,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="hanghua-account-center" options="" />
+      <module name="hanghua-account" options="" />
       <module name="hanghua-article" options="" />
       <module name="hanghua-auth" options="" />
       <module name="hanghua-common" options="" />
