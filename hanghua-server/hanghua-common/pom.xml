@@ -19,7 +19,7 @@
 
     <properties>
         <jackson.version>2.11.4</jackson.version>
-        <jwt.version>3.15.0</jwt.version>
+        <jwt.version>3.18.3</jwt.version>
     </properties>
 
 
@@ -57,7 +57,7 @@
             </exclusions>
         </dependency>
 
-
+        <!-- json -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -75,7 +75,7 @@
             <artifactId>commons-pool2</artifactId>
         </dependency>
 
-        <!-- JWT令牌认证-->
+        <!-- JWT -->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>

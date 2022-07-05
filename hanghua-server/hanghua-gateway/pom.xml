@@ -69,11 +69,19 @@
 
 
 
-        <!-- Spring Security 5中集成了OAuth2 Client和Resource Server两个模块-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
+        <!-- Spring Security 5.x中集成了OAuth2 Client和Resource Server两个子模块,子模块不可单独使用-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
         <!-- 2022.5 停止维护 Spring Security Oauth项目-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
@@ -81,13 +89,12 @@
 <!--        </dependency>-->
 
 
-        <!-- 网关聚合API文档服务：Swagger3接口文档 -->
-        <!-- knife4j已经集成了springfox，无需重复引入 -->
-<!--        <dependency>-->
-<!--            <groupId>io.springfox</groupId>-->
-<!--            <artifactId>springfox-boot-starter</artifactId>-->
-<!--            <version>${swagger3.version}</version>-->
-<!--        </dependency>-->
+        <!-- 网关聚合API文档服务：Swagger3接口文档，knife4j页面UI -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger3.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
@@ -102,6 +109,11 @@
             <artifactId>hanghua-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!-- 常用工具 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
 
 
         <dependency>
@@ -109,6 +121,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.security</groupId>-->
+<!--            <artifactId>spring-security-web</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
 

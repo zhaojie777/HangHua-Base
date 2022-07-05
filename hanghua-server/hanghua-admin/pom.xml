@@ -70,11 +70,16 @@
         </dependency>
 
 
-        <!-- 本地工具 -->
+        <!--本地工具库-->
         <dependency>
             <groupId>com.beetle</groupId>
             <artifactId>hanghua-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- 常用工具库 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
 
 

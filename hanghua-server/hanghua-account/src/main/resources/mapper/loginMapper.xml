@@ -8,7 +8,7 @@
     <!--resultType: 结果集所映射的类型，填写实体类的完整名字-->
 
 
-    <select id="getUserInfoByAccount" parameterType="string" resultType="com.beetle.hanghua.accountcenter.entity.User">
+    <select id="getUserInfoByAccount" parameterType="string" resultType="com.beetle.hanghua.account.entity.User">
                         SELECT
                     u.account,
                     u.PASSWORD,

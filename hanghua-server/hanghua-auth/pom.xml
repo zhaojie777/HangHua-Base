@@ -18,6 +18,12 @@
     <description>Demo project for Spring Boot</description>
 
 
+    <properties>
+        <authorization.service.version>0.3.1</authorization.service.version>
+        <knife4j.version>3.0.3</knife4j.version>
+    </properties>
+
+
 
     <dependencies>
         <!-- SpringBoot基本环境依赖 -->
@@ -31,29 +37,34 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Spring security & Oauth2.0授权服务器-->
+        <!-- Spring security & 新版Oauth2.0授权服务器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <!-- 仅支持java 11以上版本 -->
+        <!-- 0.3.1支持java 8及以上版本 且内部封装了对Spring security的支持-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-authorization-server</artifactId>
-            <version>0.3.0</version>
+            <version>${authorization.service.version}</version>
         </dependency>
-        <!-- 2022.5 停止维护 Spring Security Oauht项目-->
+        <!-- 2022.5 停止维护 Spring Security Oauth项目-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
 <!--            <artifactId>spring-boot-starter-oauth2-client</artifactId>-->
 <!--        </dependency>-->
 
 
-        <!--本地工具-->
+        <!--本地工具库-->
         <dependency>
             <groupId>com.beetle</groupId>
             <artifactId>hanghua-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!-- 常用工具库 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
 
 
@@ -94,6 +105,14 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+
+
+        <!-- 非UI端的swagger包 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
 
 
