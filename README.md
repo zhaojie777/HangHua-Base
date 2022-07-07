@@ -27,10 +27,24 @@
  
       缓存：Redis
  
+- #### 1.2 系统架构
+ ![架构图](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository@main//hexoBlog/202207071446186.png)
  
-- #### 1.2 项目结构
+- #### 1.3 项目结构
+      hanghua-server
+       |-- hanghua-account           -- 用户信息服务
+       |-- hanghua-admin             -- 后台管理系统
+       |-- hanghua-article           -- 文章内容服务
+       |-- hanghua-auth              -- 授权服务器
+       |-- hanghua-comment           -- 评论服务
+       |-- hanghua-common            -- 通用工具
+       |-- hanghua-gateway           -- 网关，集成swagger3、资源服务器、鉴权认证
+       |-- hanghua-im                -- 社交通信
+       |-- hanghua-mail              -- 邮件服务
+       |-- pom.xml
+
  
-- #### 1.3 环境要求
+- #### 1.4 环境要求
       操作系统：CentOS 7.0、
       JDK版本：Java 1.8.0_311、
       SDK版本：Android 10、
