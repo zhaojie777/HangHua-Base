@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.lob.DefaultLobHandler;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
@@ -25,6 +24,8 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.config.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
@@ -39,10 +40,24 @@ import java.util.UUID;
  * @date 2022/06/27 09:42
  **/
 @Configuration(proxyBeanMethods = false)
-public class  AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
+public class  AuthorizationServerConfig {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+
+
+    /**
+     * 个性化 JWT token
+     */
+    class CustomOAuth2TokenCustomizer implements OAuth2TokenCustomizer<JwtEncodingContext> {
+
+        @Override
+        public void customize(JwtEncodingContext context) {
+            // 添加一个自定义头
+            context.getHeaders().header("client-id", context.getRegisteredClient().getClientId());
+        }
+    }
 
 
 
@@ -54,6 +69,8 @@ public class  AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
+        // 设置jwt token个性化
+        http.setSharedObject(OAuth2TokenCustomizer.class, new CustomOAuth2TokenCustomizer());
         // 授权服务器配置
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         // 未通过身份验证时重定向到登录页面授权端点
@@ -78,17 +95,15 @@ public class  AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
                 // 客户端密码，不可泄漏给客户端，必须保存在服务器端
                 .clientSecret(passwordEncoder.encode("test123"))
                 // 可以基于 basic 的方式和授权服务器进行认证
-                .clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 // 授权码模式
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 // 刷新token模式
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                // 客户端模式
-                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 // 重定向地址
-//                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/messaging-client-oidc")
-//                .redirectUri("http://127.0.0.1:8080/authorized")
-                .redirectUri("https://www.zjmaster.top/")
+//                .redirectUri("http://127.0.0.1:7001/login/oauth2/code/messaging-client-oidc")
+//                .redirectUri("http://127.0.0.1:7001/authorized")
+                .redirectUri("https://www.baidu.com/")
                 // 客户端申请的作用域，即客户端申请访问用户的哪些信息，比如：获取用户信息，获取用户照片等
                 .scope(OidcScopes.OPENID)
                 .scope("message.read")
@@ -100,7 +115,9 @@ public class  AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
 
         // Save registered client in db as if in-memory
         JdbcRegisteredClientRepository registeredClientRepository = new JdbcRegisteredClientRepository(template);
-        registeredClientRepository.save(registeredClient);
+        if(registeredClientRepository.findByClientId("test-client") != null) {
+            registeredClientRepository.save(registeredClient);
+        }
 
         return registeredClientRepository;
     }
@@ -150,7 +167,7 @@ public class  AuthorizationServerConfig extends WebSecurityConfigurerAdapter {
     public ProviderSettings providerSettings() {
         return ProviderSettings.builder()
                 .tokenEndpoint("/oauth2/token")
-                .issuer("http://localhost:9000")
+                .issuer("http://localhost:7001")
                 .build();
     }
 

@@ -8,6 +8,7 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.stereotype.Component;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -20,6 +21,7 @@ import java.util.UUID;
  * @auther zhaojie
  * @date 2022/06/27 10:05
  **/
+@Component
 public final class Jwks {
 
     private Jwks(){

@@ -1,4 +1,4 @@
-package com.beetle.hanghua.admin.config;
+package com.beetle.hanghua.auth.config;
 
 
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties;
