@@ -3,8 +3,8 @@ package com.beetle.hanghua.gateway.authentication;
 import cn.hutool.core.util.StrUtil;
 import com.beetle.hanghua.common.jwt.JwtTokenUtil;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @date 2022/06/29 14:42
  **/
 @Component
-public class JwtAuthenticationTokenFilter implements GlobalFilter, Ordered {
+public class JwtAuthenticationTokenFilter implements GatewayFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

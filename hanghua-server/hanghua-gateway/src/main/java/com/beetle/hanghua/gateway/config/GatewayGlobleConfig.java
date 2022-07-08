@@ -1,11 +1,18 @@
 package com.beetle.hanghua.gateway.config;
 
 import com.beetle.hanghua.common.jwt.JwtTokenUtil;
+import com.beetle.hanghua.gateway.authentication.JwtAuthenticationTokenFilter;
 import org.apache.logging.log4j.util.Strings;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -17,15 +24,25 @@ import reactor.core.publisher.Mono;
  * @date 2022/06/22 12:52
  **/
 @Configuration
-public class GatewayGlobleConfig implements GlobalFilter, Ordered {
+public class GatewayGlobleConfig{
 
-    @Override
-    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-       return chain.filter(exchange);
+    @Autowired
+    private JwtAuthenticationTokenFilter tokenFilter;
+
+
+    @Bean
+    @Order
+    public RouteLocator customizedRoutes(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route(r -> r.path("/java/**")
+                        .filters(f -> f.stripPrefix(1)
+                                .filter(tokenFilter)
+                        )
+                        .uri("lb://FEIGN-CLIENT")
+                )
+                .build();
     }
 
-    @Override
-    public int getOrder() {
-        return 0;
-    }
+
+
 }

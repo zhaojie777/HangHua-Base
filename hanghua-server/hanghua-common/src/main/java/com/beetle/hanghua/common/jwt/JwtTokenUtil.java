@@ -80,7 +80,7 @@ public class JwtTokenUtil {
      * @return
      * @throws NoSuchAlgorithmException
      */
-    public static void verifierTokenByRS256(String token) throws NoSuchAlgorithmException {
+    public static boolean verifierTokenByRS256(String token) throws NoSuchAlgorithmException {
 
         //解密时，使用公钥校验
         Algorithm algorithm = Algorithm.RSA256(SecretKeyUtil.getPublicKey(), null);
@@ -93,8 +93,10 @@ public class JwtTokenUtil {
 
             //验证Token，verifier自动验证
             verifier.verify(token);
+            return true;
         }catch (JWTVerificationException e){
             log.error("Token无法通过验证! 异常信息：" + e.getMessage());
+            return false;
         }
 
     }
