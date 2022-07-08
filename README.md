@@ -1,4 +1,4 @@
-# 🌟  HangHua 🌟 &emsp; 基于SpringCloud实现的社区问答平台   &emsp; &emsp; [![chat](https://img.shields.io/badge/chat-weChat-blue.svg)](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository/2021-4-29/1619695898789-%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200913000038.jpg)
+# 🌟  HangHua 🌟 &emsp; 基于SpringCloud实现的行业信息问答社区   &emsp; &emsp; [![chat](https://img.shields.io/badge/chat-weChat-blue.svg)](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository/2021-4-29/1619695898789-%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200913000038.jpg)
 
 
 <p align="center"> 
@@ -32,7 +32,7 @@
  
 - #### 1.3 项目结构
       hanghua-server
-       |-- hanghua-account           -- 用户信息服务
+       |-- hanghua-account           -- 账户信息服务
        |-- hanghua-admin             -- 后台管理系统
        |-- hanghua-article           -- 文章内容服务
        |-- hanghua-auth              -- 授权服务器
@@ -76,16 +76,22 @@
 
 - #### 3.5 授权服务
   待完善
+  
+- #### 3.6 账户信息服务
+  待完善  
 
-- #### 3.6 后台服务
+
+
+
+## 3. 后台管理系统(Web端)
   待完善
 
-- #### 3.7 网关
 
 
 
 
-## 3. 客户端(Android端)
+
+## 4. 客户端(Android端)
 
   - #### 2.1 界面设计
     待完善
