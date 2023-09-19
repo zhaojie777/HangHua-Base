@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.beetle</groupId>
+    <artifactId>hanghua-cloud-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>hanghua-cloud-server</name>
+    <description>parent of huanghua</description>
+
+    <modules>
+        <!-- 账户信息服务 -->
+        <module>hanghua-account</module>
+        <!-- 文章服务 -->
+        <module>hanghua-article</module>
+        <!-- 评论服务 -->
+        <module>hanghua-comment</module>
+        <!-- IM即时通讯 -->
+        <module>hanghua-im</module>
+        <!-- 邮件服务 -->
+        <module>hanghua-mail</module>
+        <!-- 后台管理系统 -->
+        <module>hanghua-admin</module>
+        <!-- 授权服务 -->
+        <module>hanghua-auth</module>
+        <!-- 网关服务：整合资源服务、token验证、鉴权、swagger日志 -->
+        <module>hanghua-gateway</module>
+        <!-- 通用工具 -->
+        <module>hanghua-common</module>
+
+
+    </modules>
+
+    <!--参数列表-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <spring.boot.version>2.6.3</spring.boot.version>
+        <spring.cloud.version>2021.0.1</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <alibaba.druid.version>1.2.8</alibaba.druid.version>
+        <test.junit5.version>5.7.2</test.junit5.version>
+        <mysql.version>8.0.15</mysql.version>
+        <hutool.version>5.8.4</hutool.version>
+    </properties>
+
+
+    <!--dependencyManagement管理的依赖，不会直接继承给子模块，需要子模块显示声明，但为子模块的依赖管理了版本号-->
+    <dependencyManagement>
+        <dependencies>
+
+            <!--SpringBoot相关依赖-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <!--SpringCloud相关依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- SpringCloudAlibaba相关依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <!--数据库操作相关依赖-->
+            <!--Mybatis-Plus依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--MySQL驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--Druid连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${alibaba.druid.version}</version>
+            </dependency>
+
+            <!-- 工具神器：第三方工具库 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+
+            <!--Junit5单元测试-->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${test.junit5.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+
+
+
+</project>

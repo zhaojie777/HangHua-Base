@@ -1,0 +1,24 @@
+# Nacos Config Manage : 可以在NacosServer集中管理SpringCloud应用的外部属性配置
+# # dataId完整格式: ${prefix}-${spring.profiles.active}.${file-extension}
+
+spring:
+  application:
+    name: hanghua-article
+
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 49.235.119.174:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: e4fe8154-a42f-4190-8793-ad9d378d0894
+      # 注册中心
+      discovery:
+        server-addr: 49.235.119.174:8848
+        namespace: e4fe8154-a42f-4190-8793-ad9d378d0894
+        # 实例永久化
+        ephemeral: true

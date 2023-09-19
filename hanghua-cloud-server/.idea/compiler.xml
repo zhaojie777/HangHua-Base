@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hanghua-gateway" />
+        <module name="hanghua-account" />
+        <module name="hanghua-comment" />
+        <module name="hanghua-mail" />
+        <module name="hanghua-im" />
+        <module name="hanghua-common" />
+        <module name="hanghua-auth" />
+        <module name="hanghua-admin" />
+        <module name="hanghua-article" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hanghua-eureka-server" target="1.8" />
+      <module name="hanghua-hystrix-dashboard" target="1.8" />
+      <module name="hanghua-nacos" target="1.8" />
+      <module name="hanghua-resource-server" target="1.8" />
+      <module name="hanghua-ribbon-consumer" target="1.8" />
+      <module name="hanghua-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hanghua-account" options="" />
+      <module name="hanghua-article" options="" />
+      <module name="hanghua-auth" options="" />
+      <module name="hanghua-common" options="" />
+      <module name="hanghua-eureka-server" options="" />
+      <module name="hanghua-im" options="" />
+      <module name="hanghua-mail" options="" />
+      <module name="hanghua-nacos" options="" />
+      <module name="hanghua-ribbon-consumer" options="" />
+      <module name="hanghua-zuul" options="" />
+    </option>
+  </component>
+</project>
