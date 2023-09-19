@@ -1,4 +1,4 @@
-# 🌟  HangHua 🌟 &emsp; 基于SpringCloud实现的行业信息问答社区   &emsp; &emsp; [![chat](https://img.shields.io/badge/chat-weChat-blue.svg)](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository/2021-4-29/1619695898789-%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200913000038.jpg)
+# 🌟  HangHua 🌟 &emsp; 基于SpringCloud实现的行业问答社区   &emsp; &emsp; [![chat](https://img.shields.io/badge/chat-weChat-blue.svg)](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository/2021-4-29/1619695898789-%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200913000038.jpg)
 
 
 <p align="center"> 
@@ -13,8 +13,9 @@
 ## 1. 项目简介
 
 - #### 1.1 技术选型
-      微服务组件：Spring Cloud Alibaba(注册中心/配置中心：Nacos、限流/降级/熔断：Sentinel)、
-                 Spring Cloud(服务调用：OpenFeign、客户端负载：内嵌的Ribbon)
+
+      微服务组件：Spring Cloud Alibaba(注册中心/配置中心：Nacos、 限流/降级/熔断：Sentinel)、
+                 Spring Cloud(服务调用：OpenFeign、 客户端负载：内嵌的Ribbon)
                  网关：Nginx + Spring Cloud Gateway
       
       各服务框架：SpringBoot
@@ -23,12 +24,12 @@
       
       安全框架：Spring Security
  
-      数据库：MySQL
+      数据库： PostgreSQL
  
       缓存：Redis
  
 - #### 1.2 系统架构
- ![架构图](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository@main//hexoBlog/202207071446186.png)
+ ![架构图](https://cdn.jsdelivr.net/gh/zhaojie777/picture_repository@main//hexoBlog/202211071057869.png)
  
 - #### 1.3 项目结构
       hanghua-server
